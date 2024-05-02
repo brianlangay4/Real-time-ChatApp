@@ -1,0 +1,74 @@
+plugins {
+    alias(libs.plugins.androidApplication)
+    id 'com.chaquo.python'
+}
+
+android {
+    namespace 'com.builtin.chattest'
+    compileSdk 34
+
+    sourceSets {
+        main {
+            python.srcDir "src/main/python"
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.builtin.chattest"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+        ndk {
+            abiFilters "armeabi-v7a" , "arm64-v8a", "x86", "x86_64"
+        }
+
+        python {
+            version "3.8"
+            pip{
+                    //install "websocket"
+
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.22.1'
+        }
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraintlayout
+    //implementation libs.compiler
+    testImplementation libs.junit
+    //androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+    implementation 'org.java-websocket:Java-WebSocket:1.5.1'
+    runtimeOnly 'androidx.room:room-runtime:2.6.1'
+    implementation 'android.arch.persistence:db:1.1.1'
+
+
+}

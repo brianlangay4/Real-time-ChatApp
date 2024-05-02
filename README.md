@@ -1,14 +1,15 @@
 # Real-time-ChatApp
 A Real Time chat application (sockets) Android app as a Client
 ```
-# refere to the chat server
+refere to the chat server
 https://github.com/brianlangay4/python-Chat-server
 ```
 #Demo
+###
 ![web chat server](https://github.com/brianlangay4/Real-time-ChatApp/assets/67788456/d2a214dd-2062-48df-bdfa-839a2be305b7)
 
 ```
-##This i sthe client side in Android app 
+This i sthe client side in Android app 
 -User Interface (UI):
 has a simple interface for chatting.
 -Implemented functionalities such as sending and receiving messages, from server to other clients
